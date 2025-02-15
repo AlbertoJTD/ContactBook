@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct ContactsView: View {
+    @EnvironmentObject var viewModel: AddressBookViewModel // Share an object between views without passing it manually in each view
+    
     var body: some View {
-        ForEach(0..<4) { index in
+        ForEach(0..<viewModel.contactCount) { index in
             HStack {
+                let contact = viewModel.contact(atIndex: index)
                 VStack {
-                    Text("Name at index \(index)")
-                    Text("Postal code")
+                    Text(contact.name)
+                    Text(contact.displayPostalCode)
                         .font(.caption2)
                 }
                 
                 Button(action: {
-                    print("Star tapped at index: \(index)")
+                    viewModel.toggleFavorite(atIndex: index)
                 }) {
-                    Image(systemName: "star")
+                    contact.isFavorite ? Image(systemName: "star.fill") : Image(systemName: "star")
                 }
             }
             .padding()
@@ -31,4 +34,5 @@ struct ContactsView: View {
 
 #Preview {
     ContactsView()
+        .environmentObject(AddressBookViewModel())
 }

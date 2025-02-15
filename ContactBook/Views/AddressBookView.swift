@@ -19,6 +19,7 @@ struct AddressBookView: View {
             Spacer()
             
             ContactsView()
+                .environmentObject(viewModel)
             Spacer()
             
             if displayFavoriteCount {
