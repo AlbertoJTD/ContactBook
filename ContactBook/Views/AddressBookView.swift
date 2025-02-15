@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddressBookView: View {
     private var viewModel = AddressBookViewModel()
-    private var displayFavoriteCount = true
+    @State private var displayFavoriteCount = true
     
     var body: some View {
         VStack {
@@ -28,6 +28,9 @@ struct AddressBookView: View {
                     Spacer()
                 }
             }
+            
+            Toggle("Display number of favorites", isOn: $displayFavoriteCount)
+                .padding()
         }
         .background(Color(red: 254/255, green: 240/255, blue: 229/255))
     }
