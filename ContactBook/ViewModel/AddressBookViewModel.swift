@@ -8,7 +8,7 @@
 import Foundation
 
 class AddressBookViewModel: ObservableObject {
-    var addressBook = AddressBook()
+    @Published var addressBook = AddressBook()
     var contactCount: Int { addressBook.numberOfContacts }
     var favoritedContactCount: Int { addressBook.numberOfFavorites }
     
