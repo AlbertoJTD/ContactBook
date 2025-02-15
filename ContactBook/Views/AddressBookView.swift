@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddressBookView: View {
-    private var viewModel = AddressBookViewModel()
+    @StateObject private var viewModel = AddressBookViewModel()
     @State private var displayFavoriteCount = true
     
     var body: some View {
