@@ -9,7 +9,23 @@ import SwiftUI
 
 struct ContactsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(0..<4) { index in
+            HStack {
+                VStack {
+                    Text("Name at index \(index)")
+                    Text("Postal code")
+                        .font(.caption2)
+                }
+                
+                Button(action: {
+                    print("Star tapped at index: \(index)")
+                }) {
+                    Image(systemName: "star")
+                }
+            }
+            .padding()
+            .border(Color.black, width: 1)
+        }
     }
 }
 

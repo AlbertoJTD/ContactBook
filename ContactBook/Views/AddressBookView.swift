@@ -30,7 +30,6 @@ struct AddressBookView: View {
             }
         }
         .background(Color(red: 254/255, green: 240/255, blue: 229/255))
-        .ignoresSafeArea()
     }
 }
 
